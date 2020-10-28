@@ -26,7 +26,7 @@ public class WordFrequency {
 					for (String token : sentence.trim().split("[!?.,:\\\" ]+")) {
 						if (token.length() > 0) {
 							curCount = wordMap.compute(token, (k, v) -> (v == null) ? 1 : v + 1);
-							if (curCount >= maxWordCount) {
+							if (curCount >= maxWordCount) { // to find the most used word and it's last sentence
 								maxWordCount = curCount;
 								lastSentence = sentence.trim();
 							}
@@ -52,10 +52,13 @@ public class WordFrequency {
 		System.out.println("Last sentence of the most frequently used word :" + lastSentence + ".");
 
 	}
-
+	
+	// to identify the top 10 words
 	private List<Entry<String, Integer>> getTopTenWords(Map<String, Integer> wordMap) {
 
 		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(wordMap.entrySet());
+		
+		// sorting based on the highest frequency, if the frequency is same then sorting lexicographically
 		Collections.sort(list, (o1, o2) -> (o2.getValue() != o1.getValue() ? (o2.getValue() - o1.getValue())
 				: o1.getKey().compareTo(o2.getKey())));
 		return list.subList(0, 10);
