@@ -1,5 +1,7 @@
 # CHAMPtitles-Coding-Challenge
 
+# Note : Please give the location of your text file in line number 19.
+
 # Explanation
 
 I read the given file into a Stream. While iterating the stream, first I split the text into sentences. 
