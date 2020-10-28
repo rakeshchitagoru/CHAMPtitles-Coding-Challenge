@@ -16,7 +16,7 @@ public class WordFrequency {
 
 		Map<String, Integer> wordMap = new HashMap<String, Integer>();
 		String lastSentence = null;
-		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+		try (Stream<String> stream = Files.lines(Paths.get("C:/", "passage.txt"))) {
 			int maxWordCount = 0;
 			int curCount;
 			Iterator<String> ite = stream.iterator();
@@ -65,6 +65,6 @@ public class WordFrequency {
 	}
 
 	public static void main(String a[]) {
-		new WordFrequency().printResult("passage.txt");
+		new WordFrequency().printResult("test.txt");
 	}
 }
